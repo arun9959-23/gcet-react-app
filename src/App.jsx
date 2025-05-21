@@ -8,8 +8,19 @@ function App() {
 
   return (
     <>
-      
-      <h1>My Shop</h1>
+      <h1>My  online Shop</h1>
+      <hr />
+      <header>
+
+      </header>
+      <main>
+<h2> products list</h2>
+      </main>
+      <footer>
+     <hr />
+     &copy; 2005. All rights to users
+
+      </footer>
     </>
   )
 }
