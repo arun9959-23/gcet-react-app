@@ -2,8 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Router, Routes } from 'react-router-dom'
-import Product from 
+import { BrowserRouter, Router, Routes } from 'react-router-dom'
+import Product from './components/products'
+import 
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,10 +12,10 @@ function App() {
   return (
     <>
     <div>
-      <Router>
+      <BrowserRouterRouter>
       <h1>My  online Shop</h1>
       <link to="/">Home</link>
-      <link to="/cart">Home</link>
+      <link to="/cart">cart</link>
       <hr />
       <header>
 
@@ -22,7 +23,8 @@ function App() {
       
       <main>
         <Routes>
-          <route index element={<product />}/>
+          <route index element={<products />}/>
+          <route path="/" element={<products/>}/>
            <route path="/cart" element={<cart/>}/>
 <h2> products list</h2>
 </Routes>
@@ -33,7 +35,7 @@ function App() {
      &copy; 2005. All rights to users
 
       </footer>
-      </Router>
+      </BrowserRouterRouter>
       </div>
     </>
   )
