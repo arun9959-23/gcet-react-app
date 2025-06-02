@@ -5,6 +5,7 @@ import { AppContext } from '../App';  // Adjust path if needed
 export default function Product() {
   const { user } = useContext(AppContext);
   const [products, setProducts] = useState([]);
+  const API=import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     axios.get('http://localhost:8080/product')
