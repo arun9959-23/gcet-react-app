@@ -1,37 +1,35 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { AppContext } from '../App';  // Adjust path if needed
 
-export default function Product() {
-  const { user } = useContext(AppContext);
+function Product() {
   const [products, setProducts] = useState([]);
-  const API=import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    axios.get('http://localhost:8080/product')
-      .then(response => {
-        setProducts(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching products:", error);
-      });
+    const API = import.meta.env.VITE_API_URL || "http://localhost:8080";
+
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get(`${API}/products`);
+        setProducts(res.data);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   return (
     <div>
-      <h3>Welcome {user?.name || "Guest"}!</h3>
-      <h4>Product List:</h4>
-      {products.length === 0 ? (
-        <p>No products available.</p>
-      ) : (
-        <ul>
-          {products.map(prod => (
-            <li key={prod.id}>
-              {prod.name} - ₹{prod.price}
-            </li>
-          ))}
-        </ul>
-      )}
+      <h2>Product List</h2>
+      <ul>
+        {products.map((prod, index) => (
+          <li key={index}>
+            {prod.name} - ${prod.price}</li>
+        ))}
+      </ul>
     </div>
   );
 }
+
+export default Product;
