@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { AppContext } from "../App";
-import{CartContext} from "../CartContext";
+import{CartContext} from "./CartContext";
 import axios from "axios";
 import "./Product.css"
 export default function Product() {

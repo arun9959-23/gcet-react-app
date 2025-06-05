@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import Cart from "./components/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext } from "react";
-import {CartProvider} from "./CartContext";
+import {CartProvider} from "./components/CartContext";
 export const AppContext = createContext();
 function App() {
   const [users, setUsers] = useState([]);
