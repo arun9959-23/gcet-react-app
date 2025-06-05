@@ -1,12 +1,83 @@
-
+/*
 .App-Product-Row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
 }
 
 .App-Product-Row div {
+    background-color: blue;
     padding: 5px;
     margin: 5px;
-    border: 1px solid gray;
+    border: 1px solid rgb(236, 16, 16);
+}*/
+body {
+  background-color: #e7ecac;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App-Product-Row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.App-Product-Row div {
+  background: linear-gradient(135deg, #ffffff, #e9f0ff);
+  border-radius: 16px;
+  padding: 24px;
+  width: 250px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid #cfd8ff;
+}
+
+.App-Product-Row div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #62bdfe, #7bc3ef);
+}
+
+.App-Product-Row h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #071ee9;
+  margin: 10px 0 6px;
+}
+
+.App-Product-Row h4 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.App-Product-Row button {
+  background-color: #f7da00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.App-Product-Row button:hover {
+  background-color: #ed0020;
+}
+
+@media (max-width: 600px) {
+  .App-Product-Row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .App-Product-Row div {
+    width: 90%;
+  }
 }

@@ -12,12 +12,14 @@ import Footer from "./components/Footer";
 import Cart from "./components/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext } from "react";
+import {CartProvider} from "./CartContext";
 export const AppContext = createContext();
 function App() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
   return (
     <div>
+      <CartProvider>
       <AppContext.Provider value={{ users, setUsers, user, setUser }}>
         <BrowserRouter>
           <Header />
@@ -32,6 +34,7 @@ function App() {
           <Footer />
         </BrowserRouter>
       </AppContext.Provider>
+      </CartProvider>
     </div>
   );
 }
