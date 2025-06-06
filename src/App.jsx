@@ -9,7 +9,7 @@ import Register from "./components/Register";
 import Logout from "./components/Logout";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Cart from "./components/Cart";
+import Cart1 from "./components/Cart1";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext } from "react";
 import {CartProvider} from "./components/CartContext";
