@@ -17,7 +17,7 @@ export default function Register() {
     }
 
     try {
-      const url = `${API}/users/register`; // ✅ Correct path
+      const url = `${API}/users/register`; 
       const response = await axios.post(url, user);
       console.log("Register success:", response.data);
       setMsg("Registration successful. Redirecting...");

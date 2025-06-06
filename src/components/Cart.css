@@ -1,4 +1,4 @@
-/* Style the main Cart section (assuming it's the only one like this) */
+/*Style the main Cart section (assuming it's the only one like this)*/
 body > div > div > h2 {
   font-size: 24px;
   text-align: center;
@@ -6,7 +6,7 @@ body > div > div > h2 {
   color: #222;
 }
 
-/* Style the cart item list */
+/*Style the cart item list*/
 body > div > div > div {
   background-color: #fffbe6;
   padding: 10px;
@@ -17,7 +17,7 @@ body > div > div > div {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Style the "Remove" buttons */
+/*sStyle the "Remove" buttons*/
 button {
   background-color: #ff4d4f;
   color: white;
@@ -30,5 +30,5 @@ button {
 }
 
 button:hover {
-  background-color: #d9363e;
+  background-color: #e60e19;
 }
