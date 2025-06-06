@@ -1,4 +1,4 @@
-/*import { useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import "./Cart.css";
 
@@ -24,10 +24,11 @@ export default function Cart() {
       )}
     </div>
   );
-}*/
-import React, { useContext } from "react";
+}
+/*import React, { useContext } from "react";
 import CartContext from "./CartContext";
 import "./Cart.css";
+import {CartContext,CartProvider} from"/components/CartContext";
 
 export default function Cart() {
   const {
@@ -90,4 +91,4 @@ export default function Cart() {
       )}
     </div>
   );
-}
+}*/
