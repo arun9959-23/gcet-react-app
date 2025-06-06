@@ -1,36 +1,45 @@
-
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AppContext } from "../App";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 export default function Login() {
-  const { users, user, setUser } = useContext(AppContext);
-  const [msg, setMsg] = useState();
-  const Navigate = useNavigate();
+  const { user, setUser } = useContext(AppContext);
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
   const API = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async () => {
-    // const found = users.find(
-    //   (value) => value.email === user.email && value.pass === user.pass
-    // );
-    const url = `${API}/login`;
-    const found = await axios.post(url, user);
-    if (found.data.token) {
-      setUser(found.data);
-      Navigate("/");
-    } else {
-      setMsg("Invalid User or Password");
+    if (!user.email || !user.pass) {
+      setMsg("Please enter both email and password.");
+      return;
+    }
+
+    try {
+      const url = `${API}/users/login`;
+      const found = await axios.post(url, user);
+      console.log("Login response:", found.data);
+
+      if (found.data.loggedIn) {
+        setUser(found.data);
+        navigate("/");
+      } else {
+        setMsg(found.data.message || "Invalid User or Password");
+      }
+    } catch (error) {
+      console.error("Login error:", error.response?.data || error.message);
+      setMsg("Login failed. Check credentials or server.");
     }
   };
 
   const goToRegister = () => {
-    Navigate("/register");
+    navigate("/register");
   };
 
   return (
-    <div style={{ margin: "30px" }}>
+    <div className="login-container">
       <h3>Login</h3>
-      {msg}
+      {msg && <div className="msg" style={{ color: "red" }}>{msg}</div>}
       <p>
         <input
           type="text"

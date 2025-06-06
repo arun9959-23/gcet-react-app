@@ -3,7 +3,7 @@ import { CartContext } from "./CartContext";
 import "./Cart.css";
 
 export default function Cart() {
-  const { cart, removeFromCart } = useContext(CartContext);
+  const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useContext(CartContext);
 
   return (
     <div>
@@ -14,7 +14,10 @@ export default function Cart() {
         cart.map((item) => (
           <div key={item._id}>
             <h4>{item.name}</h4>
-            <p>Price: {item.price}</p>
+            <p>Price: ${item.price}</p>
+            <p>Quantity: {item.quantity}</p>
+            <button onClick={() => decrementQuantity(item._id)}>-</button>
+            <button onClick={() => incrementQuantity(item._id)}>+</button>
             <button onClick={() => removeFromCart(item._id)}>Remove</button>
           </div>
         ))
